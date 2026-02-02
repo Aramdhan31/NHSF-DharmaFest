@@ -18,6 +18,18 @@ export default function Header() {
 
   const closeMenu = () => setMenuOpen(false);
 
+  // Prevent body scroll when menu is open
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-[var(--border)] bg-[var(--bg)]/95 backdrop-blur-xl">
       <nav className="layout flex min-h-16 items-center justify-between py-2">
@@ -74,7 +86,7 @@ export default function Header() {
       {/* Mobile menu overlay */}
       {menuOpen && (
         <div
-          className="fixed inset-0 z-[60] bg-[var(--bg)]/98 backdrop-blur-xl lg:hidden"
+          className="fixed inset-0 z-[100] bg-[var(--bg)]/98 backdrop-blur-xl lg:hidden"
           onClick={closeMenu}
           aria-hidden={!menuOpen}
         >
