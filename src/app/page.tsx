@@ -225,7 +225,6 @@ export default function Home() {
               </li>
             ))}
           </ul>
-          <p className="mt-6 text-[var(--fg-muted)]">Choose one or more and bring it to life.</p>
         </div>
       </section>
 

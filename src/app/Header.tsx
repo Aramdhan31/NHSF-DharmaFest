@@ -90,27 +90,47 @@ export default function Header() {
           onClick={closeMenu}
           aria-hidden={!menuOpen}
         >
-          {/* Menu content - all visible without scrolling */}
-          <div className="flex h-full flex-col justify-center gap-4 px-6 py-8" onClick={(e) => e.stopPropagation()}>
-            {NAV_LINKS.map(({ href, label }) => (
+          {/* Menu content - styled and polished */}
+          <div className="flex h-full flex-col px-6 py-8" onClick={(e) => e.stopPropagation()}>
+            {/* Logo at top */}
+            <div className="mb-8 flex justify-center">
+              <Image
+                src="/logo-nobg.png"
+                alt="DharmaFest"
+                width={200}
+                height={60}
+                className="h-16 w-auto object-contain"
+              />
+            </div>
+
+            {/* Menu items with better styling */}
+            <div className="flex flex-1 flex-col justify-center gap-2">
+              {NAV_LINKS.map(({ href, label }, index) => (
+                <a
+                  key={href}
+                  href={href}
+                  onClick={closeMenu}
+                  className="group relative rounded-lg border border-[var(--border)] bg-[var(--bg-card)]/50 px-6 py-4 text-xl font-medium text-white transition-all hover:border-[var(--accent-border)] hover:bg-[var(--bg-elevated)] hover:text-[var(--accent)]"
+                  style={{ animationDelay: `${index * 50}ms` }}
+                >
+                  <span className="relative z-10">{label}</span>
+                  <span className="absolute inset-0 rounded-lg bg-gradient-to-r from-[var(--accent-dim)]/0 to-[var(--accent-dim)]/10 opacity-0 transition-opacity group-hover:opacity-100" />
+                </a>
+              ))}
+            </div>
+
+            {/* Get tickets button */}
+            <div className="mt-6">
               <a
-                key={href}
-                href={href}
+                href={TICKET_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={closeMenu}
-                className="text-2xl font-medium text-white transition hover:text-[var(--accent)]"
+                className="btn-primary w-full text-center text-lg py-4"
               >
-                {label}
+                Get tickets
               </a>
-            ))}
-            <a
-              href={TICKET_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={closeMenu}
-              className="btn-primary mt-4 w-full text-center text-lg py-3"
-            >
-              Get tickets
-            </a>
+            </div>
           </div>
         </div>
       )}
