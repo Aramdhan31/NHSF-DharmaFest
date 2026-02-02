@@ -85,7 +85,7 @@ export default function Home() {
                 src={TITLE_IMAGE}
                 alt="DharmaFest – Your Story, On Stage"
                 fill
-                className="object-contain object-center w-full h-full sm:object-cover"
+                className="object-contain object-center w-full h-full"
                 priority
                 sizes="100vw"
               />
