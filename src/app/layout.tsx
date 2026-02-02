@@ -18,12 +18,39 @@ const cormorant = Cormorant_Garamond({
   weight: ["400", "500", "600", "700"],
 });
 
+const SITE_URL = "https://nhsfukdharmafest.vercel.app";
+
 export const metadata: Metadata = {
   title: "DharmaFest 2026 | NHSF (UK)",
   description:
     "DharmaFest 2026 — Your Story, On Stage. National showcase for culture and identity through the creative arts.",
+  metadataBase: new URL(SITE_URL),
   icons: {
-    icon: "/Logo.png",
+    icon: "/favicon.ico",
+    apple: "/logo-nobg.png",
+  },
+  openGraph: {
+    type: "website",
+    url: SITE_URL,
+    siteName: "DharmaFest 2026",
+    title: "DharmaFest 2026 | NHSF (UK)",
+    description:
+      "DharmaFest 2026 — Your Story, On Stage. National showcase for culture and identity through the creative arts.",
+    images: [
+      {
+        url: "/logo-nobg.png",
+        width: 1200,
+        height: 630,
+        alt: "DharmaFest – Your Story, On Stage",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "DharmaFest 2026 | NHSF (UK)",
+    description:
+      "DharmaFest 2026 — Your Story, On Stage. National showcase for culture and identity through the creative arts.",
+    images: ["/logo-nobg.png"],
   },
 };
 
