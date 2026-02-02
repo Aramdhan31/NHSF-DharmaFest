@@ -55,7 +55,7 @@ export const metadata: Metadata = {
       "DharmaFest 2026 — Your Story, On Stage. National showcase for culture and identity through the creative arts.",
     images: [
       {
-        url: "/logo-nobg.png",
+        url: "/Logo.png",
         width: 1200,
         height: 630,
         alt: "DharmaFest – Your Story, On Stage",
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     title: "DharmaFest 2026 | NHSF (UK)",
     description:
       "DharmaFest 2026 — Your Story, On Stage. National showcase for culture and identity through the creative arts.",
-    images: ["/logo-nobg.png"],
+    images: ["/Logo.png"],
   },
 };
 
