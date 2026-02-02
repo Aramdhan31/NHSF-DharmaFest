@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const TICKET_URL = "https://www.nhsf.org.uk/product/dharmafest-2026-early-bird-release/";
 
