@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
+import ScrollToTop from "./ScrollToTop";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

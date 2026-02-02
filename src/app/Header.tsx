@@ -90,17 +90,17 @@ export default function Header() {
           onClick={closeMenu}
           aria-hidden={!menuOpen}
         >
-          {/* Menu content - beautiful design */}
-          <div className="flex h-full flex-col overflow-y-auto px-6 py-8" onClick={(e) => e.stopPropagation()}>
+          {/* Menu content - compact design, all visible */}
+          <div className="flex h-full flex-col px-4 py-4" onClick={(e) => e.stopPropagation()}>
             {/* Decorative top accent */}
             <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--accent)]/40 to-transparent" />
 
-            {/* Close button - elegant */}
-            <div className="mb-8 flex justify-end">
+            {/* Close button - compact */}
+            <div className="mb-4 flex justify-end">
               <button
                 type="button"
                 onClick={closeMenu}
-                className="flex h-12 w-12 items-center justify-center rounded-full border border-[var(--accent-border)]/30 bg-[var(--bg-card)]/80 text-white backdrop-blur-sm transition-all hover:border-[var(--accent-border)] hover:bg-[var(--accent-dim)] hover:scale-110"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--accent-border)]/30 bg-[var(--bg-card)]/80 text-white backdrop-blur-sm transition-all hover:border-[var(--accent-border)] hover:bg-[var(--accent-dim)] hover:scale-110"
                 aria-label="Close menu"
               >
                 <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
@@ -109,18 +109,18 @@ export default function Header() {
               </button>
             </div>
 
-            {/* Menu items - elegant cards */}
-            <div className="flex flex-1 flex-col justify-center gap-4">
+            {/* Menu items - compact, all fit on screen */}
+            <div className="flex flex-1 flex-col justify-center gap-2.5">
               {NAV_LINKS.map(({ href, label }, index) => (
                 <a
                   key={href}
                   href={href}
                   onClick={closeMenu}
-                  className="group relative overflow-hidden rounded-xl border border-[var(--accent-border)]/20 bg-gradient-to-br from-[var(--bg-card)] to-[var(--bg-elevated)] px-8 py-5 text-xl font-semibold text-white shadow-xl transition-all hover:border-[var(--accent-border)] hover:shadow-[0_0_30px_var(--accent-glow)] hover:scale-[1.02]"
+                  className="group relative overflow-hidden rounded-lg border border-[var(--accent-border)]/20 bg-gradient-to-br from-[var(--bg-card)] to-[var(--bg-elevated)] px-6 py-3.5 text-lg font-semibold text-white shadow-lg transition-all hover:border-[var(--accent-border)] hover:shadow-[0_0_20px_var(--accent-glow)]"
                 >
                   <span className="relative z-10 flex items-center justify-between">
                     <span>{label}</span>
-                    <svg className="h-5 w-5 opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="h-4 w-4 opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
                   </span>
@@ -129,14 +129,14 @@ export default function Header() {
               ))}
             </div>
 
-            {/* Get tickets button - prominent */}
-            <div className="mt-8">
+            {/* Get tickets button - compact */}
+            <div className="mt-4">
               <a
                 href={TICKET_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={closeMenu}
-                className="btn-primary w-full text-center text-lg py-5 shadow-[0_8px_32px_var(--accent-glow)] transition-all hover:scale-[1.02] hover:shadow-[0_12px_40px_var(--accent-glow)]"
+                className="btn-primary w-full text-center py-3.5 shadow-[0_8px_32px_var(--accent-glow)] transition-all hover:scale-[1.02] hover:shadow-[0_12px_40px_var(--accent-glow)]"
               >
                 Get tickets
               </a>
