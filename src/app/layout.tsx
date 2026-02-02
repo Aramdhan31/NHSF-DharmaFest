@@ -25,9 +25,26 @@ export const metadata: Metadata = {
   description:
     "DharmaFest 2026 — Your Story, On Stage. National showcase for culture and identity through the creative arts.",
   metadataBase: new URL(SITE_URL),
-  icons: {
-    icon: "/logo-nobg.png",
-    apple: "/logo-nobg.png",
+  themeColor: "#060606",
+  manifest: "/manifest.json",
+  icons: [
+    { rel: "icon", type: "image/png", sizes: "16x16", url: "/webicon.png" },
+    { rel: "icon", type: "image/png", sizes: "32x32", url: "/webicon.png" },
+    { rel: "icon", type: "image/png", sizes: "96x96", url: "/webicon.png" },
+    { rel: "icon", type: "image/png", sizes: "192x192", url: "/webicon.png" },
+    { rel: "apple-touch-icon", sizes: "57x57", url: "/webicon.png" },
+    { rel: "apple-touch-icon", sizes: "60x60", url: "/webicon.png" },
+    { rel: "apple-touch-icon", sizes: "72x72", url: "/webicon.png" },
+    { rel: "apple-touch-icon", sizes: "76x76", url: "/webicon.png" },
+    { rel: "apple-touch-icon", sizes: "114x114", url: "/webicon.png" },
+    { rel: "apple-touch-icon", sizes: "120x120", url: "/webicon.png" },
+    { rel: "apple-touch-icon", sizes: "144x144", url: "/webicon.png" },
+    { rel: "apple-touch-icon", sizes: "152x152", url: "/webicon.png" },
+    { rel: "apple-touch-icon", sizes: "180x180", url: "/webicon.png" },
+  ],
+  other: {
+    "msapplication-TileColor": "#060606",
+    "msapplication-TileImage": "/webicon.png",
   },
   openGraph: {
     type: "website",

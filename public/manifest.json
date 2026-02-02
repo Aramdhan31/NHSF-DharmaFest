@@ -1,0 +1,23 @@
+{
+  "name": "DharmaFest 2026",
+  "short_name": "DharmaFest",
+  "description": "DharmaFest 2026 — Your Story, On Stage. NHSF (UK) Cultural Show.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#060606",
+  "theme_color": "#060606",
+  "icons": [
+    {
+      "src": "/webicon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/webicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
