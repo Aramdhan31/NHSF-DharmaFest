@@ -47,7 +47,7 @@ export default function Header() {
             href={TICKET_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-primary"
+            className="btn-primary px-4 py-2 text-sm"
           >
             Get tickets
           </a>
@@ -72,32 +72,61 @@ export default function Header() {
       </nav>
 
       {/* Mobile menu overlay */}
-      <div
-        className={`fixed inset-x-0 bottom-0 top-24 z-40 bg-[var(--bg)]/98 backdrop-blur-xl transition lg:hidden ${menuOpen ? "visible opacity-100" : "invisible opacity-0 pointer-events-none"}`}
-        aria-hidden={!menuOpen}
-      >
-        <div className="layout flex flex-col gap-6 py-8">
-          {NAV_LINKS.map(({ href, label }) => (
-            <a
-              key={href}
-              href={href}
-              onClick={closeMenu}
-              className="text-lg font-medium text-white transition hover:text-[var(--accent)]"
-            >
-              {label}
-            </a>
-          ))}
-          <a
-            href={TICKET_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={closeMenu}
-            className="btn-primary mt-4 w-fit text-base"
-          >
-            Get tickets
-          </a>
+      {menuOpen && (
+        <div
+          className="fixed inset-0 z-[60] bg-[var(--bg)]/98 backdrop-blur-xl lg:hidden"
+          onClick={closeMenu}
+          aria-hidden={!menuOpen}
+        >
+          <div className="flex h-full flex-col">
+            {/* Menu header with logo and close button */}
+            <div className="flex items-center justify-between border-b border-[var(--border)] px-6 py-4">
+              <Link href="/" className="flex items-center logo-no-bg" aria-label="DharmaFest home" onClick={closeMenu}>
+                <Image
+                  src="/logo-nobg.png"
+                  alt="DharmaFest"
+                  width={200}
+                  height={60}
+                  className="h-12 w-auto object-contain"
+                />
+              </Link>
+              <button
+                type="button"
+                onClick={closeMenu}
+                className="flex h-10 w-10 items-center justify-center text-white transition hover:text-[var(--accent)]"
+                aria-label="Close menu"
+              >
+                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+
+            {/* Menu content */}
+            <div className="flex flex-1 flex-col gap-6 overflow-y-auto px-6 py-8" onClick={(e) => e.stopPropagation()}>
+              {NAV_LINKS.map(({ href, label }) => (
+                <a
+                  key={href}
+                  href={href}
+                  onClick={closeMenu}
+                  className="text-xl font-medium text-white transition hover:text-[var(--accent)]"
+                >
+                  {label}
+                </a>
+              ))}
+              <a
+                href={TICKET_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={closeMenu}
+                className="btn-primary mt-2 w-full text-center text-base"
+              >
+                Get tickets
+              </a>
+            </div>
+          </div>
         </div>
-      </div>
+      )}
     </header>
   );
 }
