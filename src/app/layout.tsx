@@ -118,6 +118,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${cormorant.variable} antialiased`}
       >
+        <ScrollToTop />
         {children}
       </body>
     </html>

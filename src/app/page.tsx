@@ -77,15 +77,15 @@ export default function Home() {
       <Header />
 
       {/* Title screen – full width, no side margins */}
-      <section id="about" className="bg-[var(--bg)] pt-20 pb-12">
+      <section id="about" className="bg-[var(--bg)] pt-20 pb-12 sm:pt-20">
         <div className="flex flex-col items-center w-full px-0">
           <div className="relative w-full overflow-hidden bg-[var(--bg-card)]">
-            <div className="relative w-full aspect-[3/4] max-h-[72vh] min-h-[280px] sm:aspect-[16/9] sm:max-h-[60vh] sm:min-h-[300px]">
+            <div className="relative w-full aspect-[3/4] max-h-[calc(100vh-5rem)] min-h-[280px] sm:aspect-[16/9] sm:max-h-[60vh] sm:min-h-[300px]">
               <Image
                 src={TITLE_IMAGE}
                 alt="DharmaFest – Your Story, On Stage"
                 fill
-                className="object-cover object-center w-full h-full"
+                className="object-contain object-center w-full h-full sm:object-cover"
                 priority
                 sizes="100vw"
               />
