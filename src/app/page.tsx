@@ -32,8 +32,48 @@ const BHAVAN_GOOGLE_MAPS = "https://www.google.com/maps/search/?api=1&query=The+
 const BHAVAN_WEBSITE = "https://www.bhavan.net/";
 
 export default function Home() {
+  // Structured data for SEO
+  const eventStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    name: "DharmaFest 2026",
+    description: "DharmaFest 2026 — Your Story, On Stage. National showcase for culture and identity through the creative arts.",
+    startDate: "2026-03-08T17:00:00+00:00",
+    endDate: "2026-03-08T22:00:00+00:00",
+    eventStatus: "https://schema.org/EventScheduled",
+    eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+    location: {
+      "@type": "Place",
+      name: "The Bhavan (Bharatiya Vidya Bhavan UK)",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "4a Castletown Road",
+        addressLocality: "London",
+        postalCode: "W14 9HE",
+        addressCountry: "GB",
+      },
+    },
+    organizer: {
+      "@type": "Organization",
+      name: "National Hindu Students Forum (UK)",
+      url: "https://www.nhsf.org.uk",
+    },
+    image: "https://nhsfukdharmafest.vercel.app/Logo.png",
+    offers: {
+      "@type": "Offer",
+      url: TICKET_URL,
+      price: "0",
+      priceCurrency: "GBP",
+      availability: "https://schema.org/InStock",
+    },
+  };
+
   return (
     <div className="min-h-screen bg-[var(--bg)] text-[var(--fg)]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(eventStructuredData) }}
+      />
       <Header />
 
       {/* Title screen – full width, no side margins */}
