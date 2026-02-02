@@ -174,6 +174,27 @@ export default function Home() {
               Open in Google Maps →
             </a>
           </div>
+          {/* Transportation and Accessibility */}
+          <div className="section-body rounded-xl border border-[var(--border)] bg-[var(--bg-card)] px-5 py-4">
+            <h3 className="mb-4 font-[family-name:var(--font-cormorant)] text-lg font-semibold text-white">
+              Getting there
+            </h3>
+            <div className="space-y-4 text-sm text-[var(--fg-muted)]">
+              <div>
+                <strong className="block mb-1 text-white">TUBE</strong>
+                <p>West Kensington (District Line) – 3 minutes walk.</p>
+                <p>Barons Court (District and Piccadilly Lines) – 7 minutes walk.</p>
+              </div>
+              <div>
+                <strong className="block mb-1 text-white">BUS</strong>
+                <p>Buses 28 and 306 stop 3 minutes away in North End Road.</p>
+              </div>
+              <div>
+                <strong className="block mb-1 text-white">ACCESSIBILITY</strong>
+                <p>The building is fully wheelchair accessible and there are lifts to all floors. There is an induction loop installed in the main auditorium.</p>
+              </div>
+            </div>
+          </div>
           {/* Venue info – applies to all events at The Bhavan (from bhavan.net) */}
           <div className="section-body rounded-xl border border-[var(--border)] bg-[var(--bg-card)] px-5 py-4 text-center">
             <div className="flex flex-wrap items-center justify-center gap-4">
