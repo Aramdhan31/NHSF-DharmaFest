@@ -1,0 +1,224 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #060606;
+  --bg-card: #0c0c0c;
+  --bg-elevated: #111111;
+  --fg: #fafafa;
+  --fg-muted: rgba(255, 255, 255, 0.6);
+  --fg-subtle: rgba(255, 255, 255, 0.4);
+  --accent: #e8b84a;
+  --accent-bright: #f0c96a;
+  --accent-dim: rgba(232, 184, 74, 0.12);
+  --accent-glow: rgba(232, 184, 74, 0.2);
+  --accent-border: rgba(232, 184, 74, 0.3);
+  --border: rgba(255, 255, 255, 0.06);
+  --border-hover: rgba(255, 255, 255, 0.12);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-fg: var(--fg);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-cormorant);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Hero: rich gradient + soft glow */
+.hero-bg {
+  background:
+    radial-gradient(140% 100% at 50% -30%, var(--accent-dim) 0%, transparent 55%),
+    radial-gradient(100% 80% at 100% 20%, rgba(232, 184, 74, 0.06) 0%, transparent 45%),
+    radial-gradient(80% 60% at 0% 80%, rgba(232, 184, 74, 0.04) 0%, transparent 40%),
+    var(--bg);
+}
+
+/* Primary button – stronger hover */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--bg);
+  background: var(--accent);
+  border: none;
+  border-radius: 9999px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px var(--accent-glow);
+  background: var(--accent-bright);
+}
+
+/* Anniversary badge */
+.badge-35 {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-dim);
+  border: 1px solid var(--accent-border);
+  border-radius: 9999px;
+}
+
+/* Logo: transparent PNG, no blend needed */
+.logo-no-bg {
+  isolation: isolate;
+}
+
+/* Layout – wider, Dharmic Games style */
+.layout {
+  width: 100%;
+  max-width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .layout {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .layout {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Event info block – date / location / time like Dharmic Games */
+.event-info {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .event-info {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+.event-info-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+}
+
+.event-info-item strong {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-subtle);
+  margin-bottom: 0.25rem;
+}
+
+.event-info-item span {
+  color: var(--fg);
+  font-size: 0.9375rem;
+}
+
+/* Section spacing – one rhythm */
+.section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+.section-heading {
+  margin-bottom: 2rem;
+}
+
+.section-body {
+  margin-top: 2rem;
+}
+
+/* Section title – accent line */
+.section-title {
+  position: relative;
+  padding-bottom: 0.75rem;
+}
+.section-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 2.5rem;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  border-radius: 1px;
+}
+
+.section-title-center::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Card hover – subtle glow */
+.card-sexy {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.card-sexy:hover {
+  border-color: var(--border-hover);
+  box-shadow: 0 0 0 1px var(--border-hover);
+}
+
+/* Nav link – underline on hover */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.2s ease;
+}
+.nav-link:hover::after {
+  width: 100%;
+}
