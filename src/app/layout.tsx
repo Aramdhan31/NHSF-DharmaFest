@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     "DharmaFest 2026 — Your Story, On Stage. National showcase for culture and identity through the creative arts.",
   metadataBase: new URL(SITE_URL),
   icons: {
-    icon: "/favicon.ico",
+    icon: "/logo-nobg.png",
     apple: "/logo-nobg.png",
   },
   openGraph: {
