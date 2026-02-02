@@ -233,21 +233,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Do I need to be a pro? */}
-      <section className="section border-t border-[var(--border)] bg-[var(--bg-elevated)]">
-        <div className="layout">
-          <h2 className="section-title font-[family-name:var(--font-cormorant)] text-2xl font-semibold text-white sm:text-3xl">
-            Do I need to be a pro?
-          </h2>
-          <div className="section-body max-w-2xl space-y-3 text-[var(--fg-muted)] leading-relaxed">
-            <p>
-              No. DharmaFest is about expression, not perfection. First performance or hundredth — we want to see it.
-            </p>
-            <p>Get your tickets and join us on the night.</p>
-          </div>
-        </div>
-      </section>
-
       {/* Theme – Navarasas */}
       <section id="theme" className="section border-t border-[var(--border)]">
         <div className="layout">
