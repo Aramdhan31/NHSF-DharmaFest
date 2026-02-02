@@ -92,7 +92,21 @@ export default function Header() {
         >
           {/* Menu content - styled and polished */}
           <div className="flex h-full flex-col px-6 py-8" onClick={(e) => e.stopPropagation()}>
-            {/* Logo at top */}
+            {/* Close button at top */}
+            <div className="mb-6 flex justify-end">
+              <button
+                type="button"
+                onClick={closeMenu}
+                className="flex h-10 w-10 items-center justify-center rounded-lg border border-[var(--border)] bg-[var(--bg-card)]/50 text-white transition-all hover:border-[var(--accent-border)] hover:bg-[var(--bg-elevated)] hover:text-[var(--accent)]"
+                aria-label="Close menu"
+              >
+                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+
+            {/* Logo */}
             <div className="mb-8 flex justify-center">
               <Image
                 src="/logo-nobg.png"
@@ -103,14 +117,14 @@ export default function Header() {
               />
             </div>
 
-            {/* Menu items with better styling */}
-            <div className="flex flex-1 flex-col justify-center gap-2">
+            {/* Menu items with boxes */}
+            <div className="flex flex-1 flex-col justify-center gap-3">
               {NAV_LINKS.map(({ href, label }, index) => (
                 <a
                   key={href}
                   href={href}
                   onClick={closeMenu}
-                  className="group relative rounded-lg border border-[var(--border)] bg-[var(--bg-card)]/50 px-6 py-4 text-xl font-medium text-white transition-all hover:border-[var(--accent-border)] hover:bg-[var(--bg-elevated)] hover:text-[var(--accent)]"
+                  className="group relative rounded-lg border-2 border-[var(--border)] bg-[var(--bg-card)] px-6 py-4 text-xl font-medium text-white shadow-lg transition-all hover:border-[var(--accent-border)] hover:bg-[var(--bg-elevated)] hover:text-[var(--accent)] hover:shadow-[var(--accent-glow)]"
                   style={{ animationDelay: `${index * 50}ms` }}
                 >
                   <span className="relative z-10">{label}</span>

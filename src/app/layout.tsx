@@ -45,6 +45,7 @@ export const metadata: Metadata = {
   other: {
     "msapplication-TileColor": "#060606",
     "msapplication-TileImage": "/webicon.png",
+    "google-site-verification": "triRm9C2c37eDKc8e4mlJ1v2D1r-y-JRjhG5iB2_Ezs",
   },
   openGraph: {
     type: "website",
