@@ -86,60 +86,69 @@ export default function Header() {
       {/* Mobile menu overlay */}
       {menuOpen && (
         <div
-          className="fixed inset-x-0 top-16 bottom-0 z-[100] bg-gradient-to-b from-[var(--bg)] via-[var(--bg)] to-[var(--bg-elevated)] backdrop-blur-xl lg:hidden"
+          className="fixed inset-x-0 top-16 bottom-0 z-[100] bg-[var(--bg)]/80 backdrop-blur-xl lg:hidden"
           onClick={closeMenu}
           aria-hidden={!menuOpen}
         >
-          {/* Menu content - compact design, all visible */}
-          <div className="flex h-full flex-col px-4 py-4" onClick={(e) => e.stopPropagation()}>
-            {/* Decorative top accent */}
-            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--accent)]/40 to-transparent" />
-
-            {/* Close button - compact */}
-            <div className="mb-4 flex justify-end">
-              <button
-                type="button"
-                onClick={closeMenu}
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--accent-border)]/30 bg-[var(--bg-card)]/80 text-white backdrop-blur-sm transition-all hover:border-[var(--accent-border)] hover:bg-[var(--accent-dim)] hover:scale-110"
-                aria-label="Close menu"
-              >
-                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
-
-            {/* Menu items - compact, all fit on screen */}
-            <div className="flex flex-1 flex-col justify-center gap-2.5">
-              {NAV_LINKS.map(({ href, label }, index) => (
-                <a
-                  key={href}
-                  href={href}
+          {/* Menu card - styled like reference */}
+          <div className="flex h-full flex-col justify-center px-4" onClick={(e) => e.stopPropagation()}>
+            <div className="mx-auto w-full max-w-sm rounded-2xl border border-[var(--accent-border)] bg-[var(--bg-card)] shadow-2xl">
+              {/* Header with logo and close button */}
+              <div className="flex items-center justify-between border-b border-[var(--border)] px-6 py-4">
+                <div className="flex items-center gap-2">
+                  <Image
+                    src="/logo-nobg.png"
+                    alt="DharmaFest"
+                    width={120}
+                    height={36}
+                    className="h-8 w-auto object-contain"
+                  />
+                  <span className="text-sm font-semibold text-white">DharmaFest</span>
+                </div>
+                <button
+                  type="button"
                   onClick={closeMenu}
-                  className="group relative overflow-hidden rounded-lg border border-[var(--accent-border)]/20 bg-gradient-to-br from-[var(--bg-card)] to-[var(--bg-elevated)] px-6 py-3.5 text-lg font-semibold text-white shadow-lg transition-all hover:border-[var(--accent-border)] hover:shadow-[0_0_20px_var(--accent-glow)]"
+                  className="flex h-8 w-8 items-center justify-center text-[var(--fg-muted)] transition-all hover:text-[var(--accent)]"
+                  aria-label="Close menu"
                 >
-                  <span className="relative z-10 flex items-center justify-between">
-                    <span>{label}</span>
-                    <svg className="h-4 w-4 opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </span>
-                  <span className="absolute inset-0 bg-gradient-to-r from-[var(--accent-dim)]/0 via-[var(--accent-dim)]/5 to-[var(--accent-dim)]/10 opacity-0 transition-opacity group-hover:opacity-100" />
-                </a>
-              ))}
-            </div>
+                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
 
-            {/* Get tickets button - compact */}
-            <div className="mt-4">
-              <a
-                href={TICKET_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={closeMenu}
-                className="btn-primary w-full text-center py-3.5 shadow-[0_8px_32px_var(--accent-glow)] transition-all hover:scale-[1.02] hover:shadow-[0_12px_40px_var(--accent-glow)]"
-              >
-                Get tickets
-              </a>
+              {/* Navigation section */}
+              <div className="px-6 py-4">
+                <h3 className="mb-4 text-xs font-semibold uppercase tracking-wider text-[var(--fg-subtle)]">
+                  Navigation
+                </h3>
+                <div className="flex flex-col gap-2">
+                  {NAV_LINKS.map(({ href, label }) => (
+                    <a
+                      key={href}
+                      href={href}
+                      onClick={closeMenu}
+                      className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-base font-medium text-white underline decoration-[var(--accent)]/30 underline-offset-4 transition-all hover:bg-[var(--accent-dim)] hover:text-[var(--accent)] hover:decoration-[var(--accent)]"
+                    >
+                      {label}
+                    </a>
+                  ))}
+                  
+                  {/* Get tickets button */}
+                  <a
+                    href={TICKET_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={closeMenu}
+                    className="btn-primary mt-2 w-full text-center py-3"
+                  >
+                    Get tickets
+                  </a>
+                </div>
+              </div>
+
+              {/* Accent border at bottom */}
+              <div className="h-1 rounded-b-2xl bg-gradient-to-r from-[var(--accent)] via-[var(--accent-bright)] to-[var(--accent)]" />
             </div>
           </div>
         </div>
