@@ -86,7 +86,7 @@ export default function Header() {
       {/* Mobile menu overlay */}
       {menuOpen && (
         <div
-          className="fixed inset-x-0 top-16 bottom-0 z-[100] bg-[var(--bg)]/80 backdrop-blur-xl lg:hidden"
+          className="fixed inset-x-0 top-20 bottom-0 z-[100] bg-[var(--bg)]/80 backdrop-blur-xl lg:hidden"
           onClick={closeMenu}
           aria-hidden={!menuOpen}
         >
