@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import ScrollToTop from "./ScrollToTop";
+import { AuthProvider } from "@/contexts/AuthContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -119,8 +120,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${cormorant.variable} antialiased`}
       >
-        <ScrollToTop />
-        {children}
+        <AuthProvider>
+          <ScrollToTop />
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );

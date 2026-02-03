@@ -3,6 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { useAuth } from "@/contexts/AuthContext";
 
 const TICKET_URL = "https://www.nhsf.org.uk/product/dharmafest-2026-early-bird-release/";
 
@@ -11,6 +13,10 @@ const NAV_LINKS = [
   { href: "#see", label: "What You'll See" },
   { href: "#theme", label: "Theme" },
   { href: "#tickets", label: "Tickets" },
+];
+
+const ADMIN_LINKS = [
+  { href: "/venue", label: "Venue Technical" },
 ];
 
 export default function Header() {
@@ -55,6 +61,30 @@ export default function Header() {
               {label}
             </a>
           ))}
+          {isAuthenticated && ADMIN_LINKS.map(({ href, label }) => (
+            <Link
+              key={href}
+              href={href}
+              className="nav-link text-[var(--accent)] transition hover:text-[var(--accent-bright)]"
+            >
+              {label}
+            </Link>
+          ))}
+          {isAuthenticated ? (
+            <button
+              onClick={handleLogout}
+              className="text-sm text-[var(--fg-muted)] transition hover:text-white"
+            >
+              Logout
+            </button>
+          ) : (
+            <Link
+              href="/login"
+              className="text-sm text-[var(--fg-muted)] transition hover:text-white"
+            >
+              Login
+            </Link>
+          )}
           <a
             href={TICKET_URL}
             target="_blank"
@@ -138,6 +168,42 @@ export default function Header() {
                   {label}
                 </a>
               ))}
+              
+              {/* Admin Links */}
+              {isAuthenticated && (
+                <>
+                  <div className="my-2 border-t border-[var(--border)]" />
+                  <p className="px-4 text-xs font-semibold uppercase tracking-wider text-[var(--fg-subtle)] mb-2">
+                    Admin
+                  </p>
+                  {ADMIN_LINKS.map(({ href, label }) => (
+                    <Link
+                      key={href}
+                      href={href}
+                      onClick={closeMenu}
+                      className="rounded-lg px-4 py-3 text-base font-medium text-[var(--accent)] underline decoration-[var(--accent)]/30 underline-offset-4 transition-all hover:bg-[var(--accent-dim)] hover:text-[var(--accent-bright)] hover:decoration-[var(--accent)]"
+                    >
+                      {label}
+                    </Link>
+                  ))}
+                  <button
+                    onClick={handleLogout}
+                    className="rounded-lg px-4 py-3 text-base font-medium text-[var(--fg-muted)] transition-all hover:bg-[var(--accent-dim)] hover:text-[var(--accent)] text-left"
+                  >
+                    Logout
+                  </button>
+                </>
+              )}
+              
+              {!isAuthenticated && (
+                <Link
+                  href="/login"
+                  onClick={closeMenu}
+                  className="rounded-lg px-4 py-3 text-base font-medium text-[var(--fg-muted)] transition-all hover:bg-[var(--accent-dim)] hover:text-[var(--accent)] text-left"
+                >
+                  Login
+                </Link>
+              )}
               
               {/* Get tickets button */}
               <a
