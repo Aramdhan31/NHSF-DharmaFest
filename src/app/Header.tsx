@@ -80,7 +80,7 @@ export default function Header() {
           ) : (
             <Link
               href="/login"
-              className="text-sm text-[var(--fg-muted)] transition hover:text-white"
+              className="text-sm font-medium text-[var(--accent)] transition hover:text-[var(--accent-bright)] underline underline-offset-2"
             >
               Login
             </Link>
@@ -199,7 +199,7 @@ export default function Header() {
                 <Link
                   href="/login"
                   onClick={closeMenu}
-                  className="rounded-lg px-4 py-3 text-base font-medium text-[var(--fg-muted)] transition-all hover:bg-[var(--accent-dim)] hover:text-[var(--accent)] text-left"
+                  className="rounded-lg px-4 py-3 text-base font-medium text-[var(--accent)] underline decoration-[var(--accent)]/30 underline-offset-4 transition-all hover:bg-[var(--accent-dim)] hover:text-[var(--accent-bright)] hover:decoration-[var(--accent)] text-left"
                 >
                   Login
                 </Link>
