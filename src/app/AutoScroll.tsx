@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 
-const SCROLL_SPEED = 0.4; // pixels per frame (~24px/sec at 60fps)
+const SCROLL_SPEED = 7.5; // pixels per frame
 
 export default function AutoScroll() {
   const [isPaused, setIsPaused] = useState(false);
