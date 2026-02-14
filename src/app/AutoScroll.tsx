@@ -7,7 +7,6 @@ const SCROLL_SPEED = 4.5; // pixels per frame
 export default function AutoScroll() {
   const [isPaused, setIsPaused] = useState(false);
   const rafRef = useRef<number>(0);
-  const userScrollRef = useRef(false);
 
   const tick = useCallback(() => {
     const doc = document.documentElement;
@@ -16,11 +15,10 @@ export default function AutoScroll() {
 
     const next = window.scrollY + SCROLL_SPEED;
     if (next >= maxScroll) {
-      window.scrollTo({ top: maxScroll, behavior: "auto" });
-      setIsPaused(true);
-      return;
+      window.scrollTo({ top: 0, behavior: "auto" });
+    } else {
+      window.scrollTo({ top: next, behavior: "auto" });
     }
-    window.scrollTo({ top: next, behavior: "auto" });
     rafRef.current = requestAnimationFrame(tick);
   }, []);
 
@@ -37,10 +35,7 @@ export default function AutoScroll() {
 
   // Pause when user scrolls (wheel, touch, or keyboard)
   useEffect(() => {
-    const pause = () => {
-      userScrollRef.current = true;
-      setIsPaused(true);
-    };
+    const pause = () => setIsPaused(true);
 
     const opts = { passive: true };
     window.addEventListener("wheel", pause, opts);
