@@ -21,8 +21,13 @@ const ADMIN_LINKS = [
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { isAuthenticated, logout } = useAuth();
 
   const closeMenu = () => setMenuOpen(false);
+  const handleLogout = () => {
+    logout();
+    closeMenu();
+  };
 
   // Prevent body scroll when menu is open
   useEffect(() => {
