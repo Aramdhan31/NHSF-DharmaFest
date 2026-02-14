@@ -15,10 +15,10 @@ export default function AutoScroll() {
 
     const next = window.scrollY + SCROLL_SPEED;
     if (next >= maxScroll) {
-      window.scrollTo({ top: 0, behavior: "auto" });
-    } else {
-      window.scrollTo({ top: next, behavior: "auto" });
+      window.location.reload();
+      return;
     }
+    window.scrollTo({ top: next, behavior: "auto" });
     rafRef.current = requestAnimationFrame(tick);
   }, []);
 
