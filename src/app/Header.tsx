@@ -19,6 +19,9 @@ const ADMIN_LINKS = [
   { href: "/venue", label: "Venue Technical" },
 ];
 
+/** Set to true to show "Get tickets" and ticket purchase links */
+const SHOW_TICKET_LINKS = false;
+
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { isAuthenticated, logout } = useAuth();
@@ -57,7 +60,7 @@ export default function Header() {
 
         {/* Desktop nav – hidden on mobile */}
         <div className="hidden items-center gap-5 text-sm lg:flex lg:gap-8">
-          {NAV_LINKS.map(({ href, label }) => (
+          {NAV_LINKS.filter(({ href }) => SHOW_TICKET_LINKS || href !== "#tickets").map(({ href, label }) => (
             <a
               key={href}
               href={href}
@@ -90,6 +93,7 @@ export default function Header() {
               Login
             </Link>
           )}
+          {SHOW_TICKET_LINKS && (
           <a
             href={TICKET_URL}
             target="_blank"
@@ -98,6 +102,7 @@ export default function Header() {
           >
             Get tickets
           </a>
+          )}
         </div>
 
         {/* Burger button – visible on mobile */}
@@ -163,7 +168,7 @@ export default function Header() {
               Navigation
             </h3>
             <div className="flex flex-col gap-2">
-              {NAV_LINKS.map(({ href, label }) => (
+              {NAV_LINKS.filter(({ href }) => SHOW_TICKET_LINKS || href !== "#tickets").map(({ href, label }) => (
                 <a
                   key={href}
                   href={href}
@@ -211,6 +216,7 @@ export default function Header() {
               )}
               
               {/* Get tickets button */}
+              {SHOW_TICKET_LINKS && (
               <a
                 href={TICKET_URL}
                 target="_blank"
@@ -220,6 +226,7 @@ export default function Header() {
               >
                 Get tickets
               </a>
+              )}
             </div>
           </div>
 

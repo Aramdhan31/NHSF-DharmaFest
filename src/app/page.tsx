@@ -28,6 +28,9 @@ const ART_FORMS = [
 ];
 
 const TICKET_URL = "https://www.nhsf.org.uk/product/dharmafest-2026-early-bird-release/";
+
+/** Set to true to show "Get tickets" and ticket purchase section */
+const SHOW_TICKET_LINKS = false;
 const TITLE_IMAGE = "/SnapInsta.to_573800586_18549132913006920_2490458646030760551_n%20(1).jpg";
 const BHAVAN_GOOGLE_MAPS = "https://www.google.com/maps/search/?api=1&query=The+Bhavan+London+W14+9HE";
 const BHAVAN_WEBSITE = "https://www.bhavan.net/";
@@ -94,6 +97,7 @@ export default function Home() {
             </div>
           </div>
           <div className="mt-8 flex flex-col items-center gap-4">
+            {SHOW_TICKET_LINKS && (
             <a
               href={TICKET_URL}
               target="_blank"
@@ -102,6 +106,7 @@ export default function Home() {
             >
               Get tickets
             </a>
+            )}
             <a href="#event-details" className="text-sm text-[var(--fg-muted)] transition hover:text-white">
               Scroll for event details
             </a>
@@ -271,6 +276,7 @@ export default function Home() {
       </section>
 
       {/* CTA – Ticket page preview; click anywhere opens ticket page */}
+      {SHOW_TICKET_LINKS && (
       <section id="tickets" className="section border-t border-[var(--border)] bg-[var(--bg-elevated)]">
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--accent)]/40 to-transparent" aria-hidden />
         <div className="layout relative">
@@ -303,6 +309,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      )}
 
       {/* Footer – centered layout like reference */}
       <footer className="section border-t border-[var(--border)] pt-12 pb-10">
