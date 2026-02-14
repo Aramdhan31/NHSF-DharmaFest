@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import AutoScroll from "./AutoScroll";
 import Countdown from "./Countdown";
 import Header from "./Header";
 
@@ -70,6 +71,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[var(--bg)] text-[var(--fg)]">
+      <AutoScroll />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(eventStructuredData) }}
