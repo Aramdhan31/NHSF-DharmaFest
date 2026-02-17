@@ -20,7 +20,7 @@ const ADMIN_LINKS = [
 ];
 
 /** Set to true to show "Get tickets" and ticket purchase links */
-const SHOW_TICKET_LINKS = false;
+const SHOW_TICKET_LINKS = true;
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);

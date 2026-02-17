@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import AutoScroll from "./AutoScroll";
 import Countdown from "./Countdown";
 import Header from "./Header";
 
@@ -30,7 +29,7 @@ const ART_FORMS = [
 const TICKET_URL = "https://www.nhsf.org.uk/product/dharmafest-2026-early-bird-release/";
 
 /** Set to true to show "Get tickets" and ticket purchase section */
-const SHOW_TICKET_LINKS = false;
+const SHOW_TICKET_LINKS = true;
 const TITLE_IMAGE = "/SnapInsta.to_573800586_18549132913006920_2490458646030760551_n%20(1).jpg";
 const BHAVAN_GOOGLE_MAPS = "https://www.google.com/maps/search/?api=1&query=The+Bhavan+London+W14+9HE";
 const BHAVAN_WEBSITE = "https://www.bhavan.net/";
@@ -74,7 +73,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[var(--bg)] text-[var(--fg)]">
-      <AutoScroll />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(eventStructuredData) }}
@@ -98,14 +96,19 @@ export default function Home() {
           </div>
           <div className="mt-8 flex flex-col items-center gap-4">
             {SHOW_TICKET_LINKS && (
-            <a
-              href={TICKET_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary"
-            >
-              Get tickets
-            </a>
+              <>
+                <a
+                  href={TICKET_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary"
+                >
+                  Get tickets
+                </a>
+                <p className="text-xs text-[var(--fg-subtle)] text-center max-w-md">
+                  Having trouble accessing tickets? Please try again later.
+                </p>
+              </>
             )}
             <a href="#event-details" className="text-sm text-[var(--fg-muted)] transition hover:text-white">
               Scroll for event details
@@ -285,6 +288,7 @@ export default function Home() {
           </h2>
           <p className="mt-2 text-[var(--fg-muted)]">Sunday 8 March 2026 · The Bhavan, London</p>
           <p className="mt-3 text-sm text-[var(--fg-muted)]">Click anywhere on the ticket page below to open it and complete your purchase.</p>
+          <p className="mt-2 text-xs text-[var(--fg-subtle)] text-center">Having trouble accessing tickets? Please try again later.</p>
           <div className="section-body relative overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--bg-card)]">
             <iframe
               src={TICKET_URL}
