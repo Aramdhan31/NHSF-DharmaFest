@@ -26,7 +26,7 @@ const ART_FORMS = [
   "Vocal & devotional",
 ];
 
-const TICKET_URL = "https://www.nhsf.org.uk/product/dharmafest-2026-early-bird-release/";
+const TICKET_URL = "https://national-hindu-students-forum-uk.sumupstore.com/product/dharmafest-2026";
 
 /** Set to true to show "Get tickets" and ticket purchase section */
 const SHOW_TICKET_LINKS = true;

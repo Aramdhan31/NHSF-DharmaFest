@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/contexts/AuthContext";
 
-const TICKET_URL = "https://www.nhsf.org.uk/product/dharmafest-2026-early-bird-release/";
+const TICKET_URL = "https://national-hindu-students-forum-uk.sumupstore.com/product/dharmafest-2026";
 
 const NAV_LINKS = [
   { href: "#about", label: "About" },
