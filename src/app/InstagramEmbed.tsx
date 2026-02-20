@@ -8,7 +8,7 @@ interface InstagramEmbedProps {
 }
 
 export default function InstagramEmbed({ url, className = "" }: InstagramEmbedProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLQuoteElement>(null);
 
   useEffect(() => {
     // Load Instagram embed script
