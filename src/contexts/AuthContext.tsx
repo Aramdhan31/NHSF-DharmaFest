@@ -16,17 +16,17 @@ const DEFAULT_PASSWORD = "NHSFDharmafest2026080326!!";
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
     // Check if user is logged in on mount
+    setIsMounted(true);
     if (typeof window !== "undefined") {
       const savedAuth = localStorage.getItem("dharmafest_auth");
       if (savedAuth === "true") {
         setIsAuthenticated(true);
       }
     }
-    setIsLoading(false);
   }, []);
 
   const login = (username: string, password: string, remember: boolean): boolean => {
@@ -48,11 +48,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   };
 
-  // Don't render children until we've checked auth state
-  if (isLoading) {
-    return null;
-  }
-
+  // Always render children to avoid hydration mismatch
+  // Auth state will update after mount
   return (
     <AuthContext.Provider value={{ isAuthenticated, login, logout }}>
       {children}

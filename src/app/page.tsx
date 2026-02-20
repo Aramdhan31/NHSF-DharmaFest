@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Countdown from "./Countdown";
 import Header from "./Header";
-import InstagramEmbed from "./InstagramEmbed";
+import InstagramFeed from "./InstagramFeed";
 
 const NAVARASAS = [
   { sanskrit: "Śringāra", english: "Love" },
@@ -278,21 +278,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Instagram Marketing Reel */}
-      <section className="section border-t border-[var(--border)] bg-[var(--bg-elevated)]">
-        <div className="layout">
-          <h2 className="section-title font-[family-name:var(--font-cormorant)] text-2xl font-semibold text-white sm:text-3xl">
-            Follow Our Journey
-          </h2>
-          <p className="mt-2 text-[var(--fg-muted)] leading-relaxed">
-            Check out our latest updates and behind-the-scenes content
-          </p>
-          <div className="section-body flex justify-center">
-            <InstagramEmbed url="https://www.instagram.com/reel/DU86cuaDV5Z/?igsh=cXRnbmVwMHUyaWpn" />
-          </div>
-        </div>
-      </section>
-
       {/* Theme – Navarasas */}
       <section id="theme" className="section border-t border-[var(--border)]">
         <div className="layout">
@@ -347,7 +332,6 @@ export default function Home() {
           <p className="mt-4 text-sm text-[var(--fg-muted)] text-center">
             Don&apos;t miss out! Purchase your ticket today to secure your spot. Tickets are limited and selling fast.
           </p>
-          <p className="mt-2 text-sm text-[var(--fg-muted)]">Click anywhere on the ticket page below to open it and complete your purchase.</p>
           <p className="mt-2 text-xs text-[var(--fg-subtle)] text-center">Having trouble accessing tickets? Please try again later.</p>
           <div className="section-body relative overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--bg-card)]">
             <iframe
@@ -374,6 +358,21 @@ export default function Home() {
         </div>
       </section>
       )}
+
+      {/* Instagram Feed */}
+      <section className="section border-t border-[var(--border)] bg-[var(--bg-elevated)]">
+        <div className="layout">
+          <h2 className="section-title font-[family-name:var(--font-cormorant)] text-2xl font-semibold text-white sm:text-3xl">
+            Follow Our Journey
+          </h2>
+          <p className="mt-2 text-[var(--fg-muted)] leading-relaxed">
+            Check out our latest updates and behind-the-scenes content on Instagram
+          </p>
+          <div className="section-body">
+            <InstagramFeed username="nhsf_uk" />
+          </div>
+        </div>
+      </section>
 
       {/* Footer – centered layout like reference */}
       <footer className="section border-t border-[var(--border)] pt-12 pb-10">
