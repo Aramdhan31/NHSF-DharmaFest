@@ -222,3 +222,28 @@ body {
 .nav-link:hover::after {
   width: 100%;
 }
+
+/* Ticket embed styling */
+.ticket-embed-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.ticket-embed-container iframe {
+  display: block;
+  width: 100%;
+  border: none;
+}
+
+/* Hide cookie banner area with gradient overlay */
+.ticket-embed-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(to top, var(--bg-card) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 5;
+}

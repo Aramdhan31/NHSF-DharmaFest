@@ -333,27 +333,39 @@ export default function Home() {
             Don&apos;t miss out! Purchase your ticket today to secure your spot. Tickets are limited and selling fast.
           </p>
           <p className="mt-2 text-xs text-[var(--fg-subtle)] text-center">Having trouble accessing tickets? Please try again later.</p>
-          <div className="section-body relative overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--bg-card)]">
-            <iframe
-              src={TICKET_URL}
-              title="DharmaFest 2026 – Ticket page preview"
-              width="100%"
-              height="700"
-              style={{ border: 0, pointerEvents: "none" }}
-              className="block w-full"
-              tabIndex={-1}
-            />
-            <a
-              href={TICKET_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="absolute inset-0 z-10 flex items-center justify-center bg-black/20 transition hover:bg-black/30"
-              aria-label="Open ticket page to buy tickets"
-            >
-              <span className="rounded-full bg-[var(--accent)] px-8 py-4 text-lg font-semibold text-[var(--bg)] shadow-lg">
-                Click to open ticket page →
-              </span>
-            </a>
+          <div className="section-body ticket-embed-container">
+            {/* Ticket Preview Container */}
+            <div className="relative" style={{ height: "650px", overflow: "hidden" }}>
+              <iframe
+                src={TICKET_URL}
+                title="DharmaFest 2026 – Ticket page preview"
+                width="100%"
+                height="650"
+                style={{ 
+                  border: 0, 
+                  pointerEvents: "none",
+                  display: "block"
+                }}
+                className="w-full"
+                tabIndex={-1}
+                scrolling="no"
+              />
+              {/* Overlay to hide cookie banner area */}
+              <div className="ticket-embed-overlay" />
+              
+              {/* Click overlay button */}
+              <a
+                href={TICKET_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute inset-0 z-10 flex items-center justify-center bg-black/5 transition hover:bg-black/15 group cursor-pointer"
+                aria-label="Open ticket page to buy tickets"
+              >
+                <span className="rounded-full bg-[var(--accent)] px-8 py-4 text-lg font-semibold text-[var(--bg)] shadow-xl transition-all group-hover:scale-105 group-hover:shadow-2xl">
+                  Click to open ticket page →
+                </span>
+              </a>
+            </div>
           </div>
         </div>
       </section>
