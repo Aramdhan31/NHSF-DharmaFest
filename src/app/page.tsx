@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Countdown from "./Countdown";
 import Header from "./Header";
+import InstagramEmbed from "./InstagramEmbed";
 
 const NAVARASAS = [
   { sanskrit: "Śringāra", english: "Love" },
@@ -27,6 +28,7 @@ const ART_FORMS = [
 ];
 
 const TICKET_URL = "https://national-hindu-students-forum-uk.sumupstore.com/product/dharmafest-2026";
+const GROUP_TICKETS_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdlAnQZNqm1CrYSwtFnMOGoeE7IQO15VIteyGi-gyVQMUDTsg/viewform";
 
 /** Set to true to show "Get tickets" and ticket purchase section */
 const SHOW_TICKET_LINKS = true;
@@ -97,14 +99,31 @@ export default function Home() {
           <div className="mt-8 flex flex-col items-center gap-4">
             {SHOW_TICKET_LINKS && (
               <>
+                <p className="text-lg font-semibold text-[var(--accent)] text-center">
+                  FIRST SALE TICKETS ARE OUT NOW!!
+                </p>
                 <a
                   href={TICKET_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-primary"
                 >
-                  Get tickets
+                  Get Your Ticket Before They&apos;re Gone!
                 </a>
+                <p className="text-xs text-[var(--fg-muted)] text-center max-w-md">
+                  Don&apos;t miss out! Purchase your ticket today to secure your spot. Tickets are limited and selling fast.
+                </p>
+                <p className="text-xs text-[var(--fg-muted)] text-center max-w-md">
+                  For Group Tickets 4+{" "}
+                  <a
+                    href={GROUP_TICKETS_FORM_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[var(--accent)] underline underline-offset-2 hover:text-[var(--accent-bright)]"
+                  >
+                    Please fill in the form below for discounted group pricing
+                  </a>
+                </p>
                 <p className="text-xs text-[var(--fg-subtle)] text-center max-w-md">
                   Having trouble accessing tickets? Please try again later.
                 </p>
@@ -123,7 +142,7 @@ export default function Home() {
           <h2 className="section-title font-[family-name:var(--font-cormorant)] text-2xl font-semibold text-white sm:text-3xl">
             Event details
           </h2>
-          <p className="mt-1 text-[var(--fg-muted)]">Countdown to DharmaFest 2026 · Sunday 8 March, doors 5pm</p>
+          <p className="mt-1 text-[var(--fg-muted)]">Countdown to DharmaFest 2026 · Sunday 8 March, doors 5pm · approx finish 8:30pm</p>
           <div className="section-body">
             <Countdown />
           </div>
@@ -156,6 +175,7 @@ export default function Home() {
             <div className="event-info-item">
               <strong>Time</strong>
               <span>Doors open 5pm</span>
+              <span className="mt-1 block text-sm">Approx finish 8:30pm</span>
             </div>
           </div>
           <div className="section-body">
@@ -258,6 +278,21 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Instagram Marketing Reel */}
+      <section className="section border-t border-[var(--border)] bg-[var(--bg-elevated)]">
+        <div className="layout">
+          <h2 className="section-title font-[family-name:var(--font-cormorant)] text-2xl font-semibold text-white sm:text-3xl">
+            Follow Our Journey
+          </h2>
+          <p className="mt-2 text-[var(--fg-muted)] leading-relaxed">
+            Check out our latest updates and behind-the-scenes content
+          </p>
+          <div className="section-body flex justify-center">
+            <InstagramEmbed url="https://www.instagram.com/reel/DU86cuaDV5Z/?igsh=cXRnbmVwMHUyaWpn" />
+          </div>
+        </div>
+      </section>
+
       {/* Theme – Navarasas */}
       <section id="theme" className="section border-t border-[var(--border)]">
         <div className="layout">
@@ -287,7 +322,32 @@ export default function Home() {
             Ready to shine?
           </h2>
           <p className="mt-2 text-[var(--fg-muted)]">Sunday 8 March 2026 · The Bhavan, London</p>
-          <p className="mt-3 text-sm text-[var(--fg-muted)]">Click anywhere on the ticket page below to open it and complete your purchase.</p>
+          <p className="mt-3 text-sm font-medium text-[var(--accent)] text-center">
+            FIRST SALE TICKETS ARE OUT NOW!!
+          </p>
+          
+          {/* Group Tickets Notice */}
+          <div className="mt-4 rounded-xl border border-[var(--accent)]/30 bg-[var(--accent)]/10 px-5 py-4 text-center">
+            <p className="text-sm font-medium text-[var(--accent)] mb-2">
+              FOR GROUP TICKETS 4+
+            </p>
+            <p className="text-xs text-[var(--fg-muted)] mb-3">
+              Please fill in the form below for discounted group pricing
+            </p>
+            <a
+              href={GROUP_TICKETS_FORM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block text-sm font-medium text-[var(--accent)] underline underline-offset-2 hover:text-[var(--accent-bright)] transition"
+            >
+              Request Group Tickets →
+            </a>
+          </div>
+
+          <p className="mt-4 text-sm text-[var(--fg-muted)] text-center">
+            Don&apos;t miss out! Purchase your ticket today to secure your spot. Tickets are limited and selling fast.
+          </p>
+          <p className="mt-2 text-sm text-[var(--fg-muted)]">Click anywhere on the ticket page below to open it and complete your purchase.</p>
           <p className="mt-2 text-xs text-[var(--fg-subtle)] text-center">Having trouble accessing tickets? Please try again later.</p>
           <div className="section-body relative overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--bg-card)]">
             <iframe
