@@ -32,12 +32,15 @@ export default function InstagramFeed({ username, className = "" }: InstagramFee
             <iframe
               src={`https://www.instagram.com/${username}/embed/`}
               width="100%"
-              height="800"
-              style={{ border: 0 }}
-              scrolling="yes"
+              height="450"
+              style={{ 
+                border: 0,
+                display: "block"
+              }}
+              scrolling="no"
               allowTransparency
               title={`Instagram profile feed for @${username}`}
-              className="w-full bg-white"
+              className="w-full bg-white h-[450px] sm:h-[550px] md:h-[650px] lg:h-[750px]"
             />
           </div>
         </div>
